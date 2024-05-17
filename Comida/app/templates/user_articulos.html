@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha Caducidad</th>
+    </tr>
+    </thead>
+
+    {% for articulo in articulos.items %}
+    <tr>
+      <td> {{ articulo.nombre }}</td>
+      <td> {{ articulo.fecha_caducidad|dateFormat }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% for page_num in articulos.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if articulos.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('user_articulos',username=current_user.username, page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('user_articulos', username=current_user.username, page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+{% endblock content %}

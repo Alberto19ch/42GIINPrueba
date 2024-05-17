@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+  <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Nuevo articulo</legend>
+            <div class="form-group">
+                {{ form.nombre.label(class="form-control-label") }}
+
+                {% if form.nombre.errors %}
+                    {{ form.nombre(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.nombre.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.nombre(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.fecha_compra.label(class="form-control-label") }}
+
+                {% if form.fecha_compra.errors %}
+                    {{ form.fecha_compra(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.fecha_compra.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.fecha_compra(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+          <div class="form-group">
+              {{ form.fecha_caducidad.label(class="form-control-label") }}
+
+              {% if form.fecha_caducidad.errors %}
+                  {{ form.fecha_caducidad(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.fecha_caducidad.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.fecha_caducidad(class="form-control form-control-lg") }}
+              {% endif %}
+          </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+  </form>
+</div>
+{% endblock content %}
