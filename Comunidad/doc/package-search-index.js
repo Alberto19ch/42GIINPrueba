@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"conceptos"},{"l":"gastos"},{"l":"inmuebles"},{"l":"liquidaciones"},{"l":"servicios"}];updateSearchResults();
